@@ -15,7 +15,18 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://oa.wuwei.kooboo.site'
+        target: 'http://webt.lilang.com:8901/svr-develop/',
+        pathRewrite: {
+          changeOrigin: true,
+          '^/api': ''
+        }
+      },
+      '/user': {
+        target: 'http://tm.lilanz.com/oa/project/MobileApplyCheck/applycheckcore.ashx',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/user': ''
+        }
       }
     }
   },

@@ -1,57 +1,36 @@
 <template>
   <div id="app">
-    <button @click="$router.push('/route')">route</button>
-    <button @click="$router.push('/routecopy')">routecopy</button>
-    <button @click="destoryEvent">destoryEvent</button>
-    <button @click="evenbusBtn">cliceventbus</button>
-    <Poster />
-    <Postera />
-    <router-view />
-    <span ref="sss">{{ namew }}</span>
-    <button @click="namebtn">wukai</button>
+    <keep-alive include="Index">
+      <router-view> </router-view>
+    </keep-alive>
   </div>
 </template>
 <script>
-import Poster from "components/Poster";
-import Postera from "components/Postera";
-import { eventBus } from "utils/eventbus";
+// import Poster from "components/Poster";
+// import Postera from "components/Postera";
+// import { eventBus } from "utils/eventbus";
 
 export default {
   name: "App",
   data: function () {
-    return {
-      namew: "wuwei",
-    };
+    return {};
   },
-  mounted() {
-    this.$nextTick(() => {
-      console.log(this.$refs.sss + "sss");
-    });
-  },
+  mounted() {},
   components: {
-    Poster,
-    Postera,
+    // Poster,
+    // Postera,
   },
-  methods: {
-    evenbusBtn() {
-      eventBus.$emit("s");
-    },
-    destoryEvent() {
-      eventBus.$off("s");
-    },
-    namebtn() {
-      this.namew = "wukai";
-      this.$nextTick(() => {
-        console.log(this.$refs.sss.innerText);
-        Promise.resolve(43434);
-        this.$nextTick(() => {
-          console.log(this.$refs.sss + "sss");
-        });
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 <style lang="scss">
 @import url(./assets/css/base.css);
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+#app {
+  height: 100%;
+}
 </style>
