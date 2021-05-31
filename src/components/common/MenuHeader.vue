@@ -1,6 +1,6 @@
 <template>
     <div>
-        contian 
+
     </div>
 </template>
 
